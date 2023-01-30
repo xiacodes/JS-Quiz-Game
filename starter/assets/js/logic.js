@@ -6,6 +6,7 @@ var startScreen = document.getElementById("start-screen");
 var questionsScreen = document.getElementById("questions");
 var choicesList = document.getElementById("choices-list");
 var questionTitle = document.getElementById("question-title");
+var questionRN = 0;
 
 // Feedback Screen
 var feedbackContainer = document.getElementById("feedback");

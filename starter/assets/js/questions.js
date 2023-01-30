@@ -27,30 +27,50 @@ var questions = [
 	},
 ];
 
-function makingQuestion(title, array) {
-	questionTitle.textContent = title;
-	for (var i = 0; i < array.length; i++) {
+function makingQuestion(object) {
+	for (var i = 0; i < object.length; i++) {
 		var li = document.createElement("li");
 		li.setAttribute("class", "answers");
-		li.textContent = array[i];
+		li.textContent = object[i];
 		choicesList.appendChild(li);
 	}
 }
 
-makingQuestion(q2Title, question2);
+makingQuestion(questions);
 
-const listItems = document.querySelectorAll(".answers");
+const listItems = document.querySelectorAll("li");
+
+// Deletes the list
+function removeTheList() {
+	for (let j = 0; j < listItems.length; j++) {
+		choicesList.removeChild(listItems[j]);
+	}
+}
+
+// Shows the question + choices on the screen
+function renderQuestion(questionNum) {
+	var question = questions[questionNum];
+	questionTitle.textContent = question.question;
+	removeTheList();
+	makingQuestion(question.answers);
+}
+
+var playing = true;
+
+while (playing == true) {}
+
+renderQuestion(questionRN);
 
 for (var i = 0; i < listItems.length; i++) {
 	listItems[i].addEventListener("click", function () {
 		//If any of the correct answers are clicked
-		if (this.textContent === q1Answer || this.textContent === q2Answer || this.textContent === q3Answer || this.textContent === q4Answer || this.textContent === q5Answer) {
+		if (listItems[i].textContent === questions[questionRN].correct) {
 			h3.textContent = "Correct!";
 		} else {
 			h3.textContent = "Wrong!";
 			counter -= 9;
 		}
-
+		questionRN++;
 		//Showing the feedback section
 		feedbackContainer.classList.remove("hide");
 		feedbackContainer.appendChild(h3);
