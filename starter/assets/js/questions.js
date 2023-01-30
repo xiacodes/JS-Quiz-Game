@@ -1,16 +1,31 @@
-// Question titles!
-var q1Title = "What is CSS used for?";
-var q2Title = "How do you add JavaScript to an HTML file?";
-var q3Title = "How do you select an element with the ID 'example' in CSS?";
-var q4Title = "How do you make a function in JavaScript that displays an alert?";
-var q5Title = "How do you set the background color of a page to yellow in CSS?";
-
-// Questions' Answers arrays
-var question1 = ["Writing JavaScript code", "Creating a website layout and design", "Storing website data", "Processing user input"];
-var question2 = ["By using the <script> tag in the <head> section", "By using the <style> tag in the <body> section", "Storing website data", "By using the <jscript> tag in the <header> section"];
-var question3 = ["#example { }", ".example { }", "example { }", "<example> { }"];
-var question4 = ["function alertFunction() { alert('Hello!'); }", "function displayAlert() { alertBox(Hello!''); }", "function showMessage() { alert('Hello!''); }", "function popUp() { alert('Hello!''); }"];
-var question5 = ["body {color: yellow;}", "body {background-color: yellow;}", "page {color: yellow;}", "page {background: yellow;}"];
+// The question objects
+var questions = [
+	{
+		question: "What is CSS used for?",
+		answers: ["Writing JavaScript code", "Creating a website layout and design", "Storing website data", "Processing user input"],
+		correct: "Creating a website layout and design",
+	},
+	{
+		question: "How do you select an element with the ID 'example' in CSS?",
+		answers: ["<example> { }", ".example { }", "example { }", "#example { }"],
+		correct: "#example { }",
+	},
+	{
+		question: "How do you add JavaScript to an HTML file?",
+		answers: ["Storing website data", "By using the <style> tag in the <body> section", "By using the <script> tag in the <head> section", "By using the <jscript> tag in the <header> section"],
+		correct: "By using the <script> tag in the <head> section",
+	},
+	{
+		question: "How do you make a function in JavaScript that displays an alert?",
+		answers: ["function alertFunction() { alert('Hello!'); }", "function displayAlert() { alertBox(Hello!''); }", "function showMessage() { alert('Hello!''); }", "function popUp() { alert('Hello!''); }"],
+		correct: "function alertFunction() { alert('Hello!'); }",
+	},
+	{
+		question: "How do you set the background color of a page to yellow in CSS?",
+		answers: ["body {color: yellow;}", "body {background-color: yellow;}", "page {color: yellow;}", "page {background: yellow;}"],
+		correct: "body {background-color: yellow;}",
+	},
+];
 
 function makingQuestion(title, array) {
 	questionTitle.textContent = title;
@@ -24,13 +39,6 @@ function makingQuestion(title, array) {
 
 makingQuestion(q2Title, question2);
 
-// Correct Answers Detector~!
-var q1Answer = "Creating a website layout and design";
-var q2Answer = "By using the <script> tag in the <head> section";
-var q3Answer = "#example { }";
-var q4Answer = "function alertFunction() { alert('Hello!'); }";
-var q5Answer = "body {background-color: yellow;}";
-
 const listItems = document.querySelectorAll(".answers");
 
 for (var i = 0; i < listItems.length; i++) {
@@ -40,7 +48,7 @@ for (var i = 0; i < listItems.length; i++) {
 			h3.textContent = "Correct!";
 		} else {
 			h3.textContent = "Wrong!";
-			counter -= 5;
+			counter -= 9;
 		}
 
 		//Showing the feedback section
@@ -54,8 +62,10 @@ for (var i = 0; i < listItems.length; i++) {
 			}
 			feedbackContainer.classList.add("hide");
 			questionTitle.textContent = "";
-		}, 2500);
+		}, 2000);
 	});
 }
 
-function renderQuestionsAndAnswers(title, array) {}
+function renderQuestionsAndAnswers(title, array) {
+	for (let k = 0; k < array.length; k++) {}
+}
