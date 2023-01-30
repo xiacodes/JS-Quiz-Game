@@ -11,3 +11,7 @@ startBtn.addEventListener("click", function () {
 	startScreen.classList.add("hide");
 	questionsScreen.classList.remove("hide");
 });
+
+// Feedback Screen
+var feedbackContainer = document.getElementById("feedback");
+var h3 = document.createElement("h3");
