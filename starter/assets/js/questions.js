@@ -22,7 +22,7 @@ function makingQuestion(title, array) {
 	}
 }
 
-addToOrderedList(question1);
+makingQuestion(q2Title, question2);
 
 // Correct Answers Detector~!
 var q1Answer = "Creating a website layout and design";
@@ -40,6 +40,7 @@ for (var i = 0; i < listItems.length; i++) {
 			h3.textContent = "Correct!";
 		} else {
 			h3.textContent = "Wrong!";
+			counter -= 5;
 		}
 
 		//Showing the feedback section
@@ -52,6 +53,7 @@ for (var i = 0; i < listItems.length; i++) {
 				choicesList.removeChild(listItems[index]);
 			}
 			feedbackContainer.classList.add("hide");
+			questionTitle.textContent = "";
 		}, 2500);
 	});
 }
