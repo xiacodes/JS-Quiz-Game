@@ -47,10 +47,14 @@ function viewCurrentQuestion() {
 	questionTitle.textContent = questions[currentQuestion].title;
 
 	// Inserting the question answer choices
-	answer1.textContent = questions[currentQuestion].answers[0];
-	answer2.textContent = questions[currentQuestion].answers[1];
-	answer3.textContent = questions[currentQuestion].answers[2];
-	answer4.textContent = questions[currentQuestion].answers[3];
+	for (let i = 0; i < answers.length; i++) {
+		answers[i].textContent = `${[i + 1]}. ` + questions[currentQuestion].answers[i];
+	}
 }
 
 viewCurrentQuestion();
+
+choicesList.addEventListener("click", function (e) {
+	var userAnswer = e.target.textContent;
+	var correct = questions[currentQuestion].correct;
+});
