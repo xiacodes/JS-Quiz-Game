@@ -60,6 +60,7 @@ function endTheGame() {
 	feedbackContainer.setAttribute("class", "hide");
 	endScreen.classList.remove("hide");
 	clearInterval(timer);
+	finalScore.textContent = score;
 }
 
 choicesList.addEventListener("click", function (e) {
@@ -70,6 +71,8 @@ choicesList.addEventListener("click", function (e) {
 	if (userAnswer == correct) {
 		//Showing the feedback section
 		play(1);
+		score += 11;
+		console.log(score);
 		h3.textContent = "Correct!";
 		feedbackContainer.classList.remove("hide");
 		feedbackContainer.appendChild(h3);

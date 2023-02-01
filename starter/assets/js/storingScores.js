@@ -1,17 +1,16 @@
 var playerInfo;
+console.log(score);
 
 subBtn.addEventListener("click", function (event) {
 	event.preventDefault();
 	// The information stored in variables
-	score = time.textContent;
-	var user = userInput.value;
 
-	// The array to store it
-	playerInfo = {
-		score: score,
-		user: user,
-	};
+	var user = userInput.value;
+	var userScore = score;
+
+	// The object to store it
+	playerInfo = [userScore, user];
 
 	// Putting it in the local storage
-	localStorage.setItem("highScores", JSON.stringify(playerInfo));
+	localStorage.setItem("playerInfo", JSON.stringify(playerInfo));
 });
