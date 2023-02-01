@@ -57,4 +57,27 @@ viewCurrentQuestion();
 choicesList.addEventListener("click", function (e) {
 	var userAnswer = e.target.textContent;
 	var correct = questions[currentQuestion].correct;
+
+	if (userAnswer == correct) {
+		//Showing the feedback section
+		h3.textContent = "Correct!";
+		feedbackContainer.classList.remove("hide");
+		feedbackContainer.appendChild(h3);
+	} else if (userAnswer !== correct) {
+		h3.textContent = "Wrong!";
+		feedbackContainer.classList.remove("hide");
+		feedbackContainer.appendChild(h3);
+		counter -= 5;
+	}
+
+	if (currentQuestion > questions.length) {
+		endTheGame();
+	} else {
+		//After 3 seconds, delete everything anf hide the feedback containers
+		setTimeout(function () {
+			currentQuestion++;
+			feedbackContainer.classList.add("hide");
+			viewCurrentQuestion();
+		}, 2500);
+	}
 });
