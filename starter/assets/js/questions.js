@@ -27,7 +27,7 @@ var questions = [
 	},
 ];
 
-// Set the current number of the question from the 'questions' object
+// Set the current number of the question from the 'questions' array
 var currentQuestion = 0;
 
 //The list elements for each choice answers
@@ -35,3 +35,9 @@ var answer1 = document.createElement("li");
 var answer2 = document.createElement("li");
 var answer3 = document.createElement("li");
 var answer4 = document.createElement("li");
+var answers = [answer1, answer2, answer3, answer4];
+
+// Loop and add the li elements to the ol element
+for (let index = 0; index < answers.length; index++) {
+	choicesList.appendChild(index);
+}
