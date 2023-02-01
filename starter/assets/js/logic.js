@@ -14,6 +14,8 @@ var h3 = document.createElement("h3");
 
 // The End Screen
 var endScreen = document.getElementById("end-screen");
+var subBtn = document.getElementById("submit");
+var userInput = document.getElementById("initials");
 
 //Scoring
 var score = 0;

@@ -65,9 +65,7 @@ function endTheGame() {
 choicesList.addEventListener("click", function (e) {
 	e.stopPropagation;
 	var userAnswer = e.target.textContent;
-	console.log(userAnswer);
 	var correct = questions[currentQuestion].correct;
-	console.log(correct);
 
 	if (userAnswer == correct) {
 		//Showing the feedback section
