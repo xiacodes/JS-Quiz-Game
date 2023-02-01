@@ -63,6 +63,7 @@ choicesList.addEventListener("click", function (e) {
 
 	if (userAnswer == correct) {
 		//Showing the feedback section
+		play(1);
 		h3.textContent = "Correct!";
 		feedbackContainer.classList.remove("hide");
 		feedbackContainer.appendChild(h3);
@@ -89,5 +90,13 @@ choicesList.addEventListener("click", function (e) {
 	function endTheGame() {
 		questionsScreen.setAttribute("class", "hide");
 		feedbackContainer.setAttribute("class", "hide");
+	}
+
+	function play(num) {
+		if (num == 1) {
+			var audio = new Audio("correct.wav");
+			audio.loop = false;
+			audio.play();
+		}
 	}
 });
