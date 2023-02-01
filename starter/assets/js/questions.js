@@ -29,3 +29,9 @@ var questions = [
 
 // Set the current number of the question from the 'questions' object
 var currentQuestion = 0;
+
+//The list elements for each choice answers
+var answer1 = document.createElement("li");
+var answer2 = document.createElement("li");
+var answer3 = document.createElement("li");
+var answer4 = document.createElement("li");
