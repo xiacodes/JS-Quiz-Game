@@ -48,15 +48,18 @@ function viewCurrentQuestion() {
 
 	// Inserting the question answer choices
 	for (let i = 0; i < answers.length; i++) {
-		answers[i].textContent = `${[i + 1]}. ` + questions[currentQuestion].answers[i];
+		answers[i].textContent = questions[currentQuestion].answers[i];
 	}
 }
 
 viewCurrentQuestion();
 
 choicesList.addEventListener("click", function (e) {
+	e.stopPropagation;
 	var userAnswer = e.target.textContent;
+	console.log(userAnswer);
 	var correct = questions[currentQuestion].correct;
+	console.log(correct);
 
 	if (userAnswer == correct) {
 		//Showing the feedback section
@@ -70,14 +73,21 @@ choicesList.addEventListener("click", function (e) {
 		counter -= 5;
 	}
 
-	if (currentQuestion > questions.length) {
+	var endGameNum = questions.length - 1;
+	if (currentQuestion >= endGameNum) {
 		endTheGame();
 	} else {
 		//After 3 seconds, delete everything anf hide the feedback containers
+
 		setTimeout(function () {
 			currentQuestion++;
 			feedbackContainer.classList.add("hide");
 			viewCurrentQuestion();
-		}, 2500);
+		}, 1000);
+	}
+
+	function endTheGame() {
+		questionsScreen.setAttribute("class", "hide");
+		feedbackContainer.setAttribute("class", "hide");
 	}
 });
