@@ -54,6 +54,14 @@ function viewCurrentQuestion() {
 
 viewCurrentQuestion();
 
+// Function for when the quiz is over
+function endTheGame() {
+	questionsScreen.setAttribute("class", "hide");
+	feedbackContainer.setAttribute("class", "hide");
+	endScreen.classList.remove("hide");
+	clearInterval(timer);
+}
+
 choicesList.addEventListener("click", function (e) {
 	e.stopPropagation;
 	var userAnswer = e.target.textContent;
@@ -68,6 +76,7 @@ choicesList.addEventListener("click", function (e) {
 		feedbackContainer.classList.remove("hide");
 		feedbackContainer.appendChild(h3);
 	} else if (userAnswer !== correct) {
+		play(2);
 		h3.textContent = "Wrong!";
 		feedbackContainer.classList.remove("hide");
 		feedbackContainer.appendChild(h3);
@@ -78,8 +87,7 @@ choicesList.addEventListener("click", function (e) {
 	if (currentQuestion >= endGameNum) {
 		endTheGame();
 	} else {
-		//After 3 seconds, delete everything anf hide the feedback containers
-
+		//After 3 seconds, display the next question
 		setTimeout(function () {
 			currentQuestion++;
 			feedbackContainer.classList.add("hide");
@@ -87,14 +95,16 @@ choicesList.addEventListener("click", function (e) {
 		}, 1000);
 	}
 
-	function endTheGame() {
-		questionsScreen.setAttribute("class", "hide");
-		feedbackContainer.setAttribute("class", "hide");
-	}
-
+	// Plays the special effects when the user clicks an answer
+	// >> Could not make the audio work when in the 'sfx' folder so I put it in the same folder as the index.html file
 	function play(num) {
 		if (num == 1) {
 			var audio = new Audio("correct.wav");
+			audio.loop = false;
+			audio.play();
+		}
+		if (num == 2) {
+			var audio = new Audio("incorrect.wav");
 			audio.loop = false;
 			audio.play();
 		}

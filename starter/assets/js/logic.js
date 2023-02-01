@@ -12,12 +12,16 @@ var questionRN = 0;
 var feedbackContainer = document.getElementById("feedback");
 var h3 = document.createElement("h3");
 
+// The End Screen
+var endScreen = document.getElementById("end-screen");
+
 //Scoring
 var score = 0;
 
 // Timer
 var time = document.getElementById("time");
 var counter = 60;
+var timer;
 
 // The start button + timer countdown
 startBtn.addEventListener("click", function () {
@@ -26,7 +30,7 @@ startBtn.addEventListener("click", function () {
 	questionsScreen.classList.remove("hide");
 
 	//Counting down the timer
-	var timer = setInterval(() => {
+	timer = setInterval(() => {
 		time.textContent = counter;
 		counter--;
 		//I set it to -1 so the user can see the '0' at the end~!
@@ -34,4 +38,6 @@ startBtn.addEventListener("click", function () {
 			clearInterval(timer);
 		}
 	}, 1000);
+
+	timer;
 });
