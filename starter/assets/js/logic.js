@@ -4,7 +4,7 @@ var startScreen = document.getElementById("start-screen");
 
 // Questions Screen variables
 var questionsScreen = document.getElementById("questions");
-var choicesList = document.getElementById("choices-list");
+var choicesList = document.getElementById("choices");
 var questionTitle = document.getElementById("question-title");
 var questionRN = 0;
 

@@ -31,17 +31,26 @@ var questions = [
 var currentQuestion = 0;
 
 //The list elements for each choice answers
-var answer1 = document.createElement("li");
-var answer2 = document.createElement("li");
-var answer3 = document.createElement("li");
-var answer4 = document.createElement("li");
+var answer2 = document.createElement("button");
+var answer3 = document.createElement("button");
+var answer1 = document.createElement("button");
+var answer4 = document.createElement("button");
 var answers = [answer1, answer2, answer3, answer4];
 
 // Loop and add the li elements to the ol element
 for (let index = 0; index < answers.length; index++) {
-	choicesList.appendChild(index);
+	choicesList.appendChild(answers[index]);
 }
 
 function viewCurrentQuestion() {
+	// The title of the new question
 	questionTitle.textContent = questions[currentQuestion].title;
+
+	// Inserting the question answer choices
+	answer1.textContent = questions[currentQuestion].answers[0];
+	answer2.textContent = questions[currentQuestion].answers[1];
+	answer3.textContent = questions[currentQuestion].answers[2];
+	answer4.textContent = questions[currentQuestion].answers[3];
 }
+
+viewCurrentQuestion();
